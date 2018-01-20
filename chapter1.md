@@ -32,23 +32,51 @@ _注：凸壳(Convex Hull)可能翻译成凸包更好_
 #### **1.2-2**
 > 假设我们正比较插入排序与归并排序在相同机器上的实现。对规模为$$n$$的输入，插入排序运行$$8n^2$$步，而归并排序运行$$64n\lg n$$步。问对哪些$$n$$值，插入排序优于归并排序？
 
-由已知条件得：
-
-$$
-8n^2 \lt 64n\lg n
-$$
-
-即：
+由已知：
 $$
 \begin{equation}
 8n^2 \lt 64n\lg n
 \end{equation}
 $$
-$$\begin{aligned}n \lt 8\lg n\end{aligned}$$
+即：
+$$
+\begin{equation}
+\frac{n}{\lg n} \lt 8
+\end{equation}
+$$
+又：
+$$
+\begin{equation}
+\frac{43}{\lg 43} \approx 7.79 \lt 8 \\
+\frac{44}{\lg 44} \approx 8.06 \gt 8
+\end{equation}
+$$
+
+所以满足插入排序优于归并排序的$$n$$不大于43。
+
+#### **1.2-3**
+> $$n$$的最小值为何值时，运行时间为$$100n^2$$的一个算法在相同机器上快于运行时间为$$2^n$$的另一个算法？
+
+由已知：
+$$
+\begin{equation}
+100n^2 \lt 2^n
+\end{equation}
+$$
+即：
+$$
+\begin{equation}
+\frac{100n^2}{2^n} \lt 1
+\end{equation}
 
 又：
+$$
+\begin{equation}
+\frac{43}{\lg 43} \approx 7.79 \lt 8 \\
+\frac{44}{\lg 44} \approx 8.06 \gt 8
+\end{equation}
+$$
 
-$$\frac{43}{\lg 43} \approx 7.79 \lt 8,\frac{44}{\lg 44} \approx 8.06 \gt 8$$
 
 
 
