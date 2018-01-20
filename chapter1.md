@@ -41,7 +41,7 @@ $$n \lt 8\lg n$$
 
 又：
 
-$$\frac{43}{\lg 43} \approx 7.79 \lt 8$$
+$$\frac{43}{\lg 43} \approx 7.79 \lt 8,\frac{44}{\lg 44} \approx 8.06 \gt 8$$
 
 
 
