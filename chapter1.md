@@ -37,7 +37,7 @@ _注：凸壳(Convex Hull)可能翻译成凸包更好_
 $$8n^2 \lt 64n\lg n$$
 即：
 $$n \lt 8\lg n$$
-{% math %}}n \lt 8\lg n{% endmath %}
+{% math %}n \lt 8\lg n{% endmath %}
 又$$\frac{43}{\lg 43} \approx 7.79 \lt 8,\frac{44}{\lg 44} \approx 8.06 \gt 8$$
 
 
