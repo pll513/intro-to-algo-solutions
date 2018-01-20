@@ -36,11 +36,20 @@ _注：凸壳(Convex Hull)可能翻译成凸包更好_
 
 $$8n^2 \lt 64n\lg n$$
 即：
-$$n \lt 8\lg n$$
+$$
+n \lt 8\lg n
+$$
 {% math %}
 n \lt 8\lg n
 {% endmath %}
 又$$\frac{43}{\lg 43} \approx 7.79 \lt 8,\frac{44}{\lg 44} \approx 8.06 \gt 8$$
+
+
+\begin{align*}
+  E(R_{i,t})    &= E(\alpha_i)+E(\beta_{i,F_1 } F_{1,t})+E(\beta_{i,F_2 } F_{2,t})+\ldots+E(\beta_{i,F_m } F_{m,t}) \\
+  \bar{R}_{i,t} &= a+\hat{\beta}_{i,F_1 } E(F_{1,t})+\hat{\beta}_{i,F_2 } E(F_{2,t})+\ldots+\hat{\beta}_{i,F_m } E(F_{m,t}) \\
+  \bar{R}_{i,t} &= a+\gamma_1\hat{\beta}_{i,F_1 } +\gamma_2\hat{\beta}_{i,F_2 } F_{2,t}+\ldots+\gamma_m\hat{\beta}_{i,F_m }
+\end{align*}
 
 
 
