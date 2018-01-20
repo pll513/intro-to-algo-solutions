@@ -30,25 +30,25 @@ _注：凸壳(Convex Hull)可能翻译成凸包更好_
 > 给出在应用层需要算法内容的一个例子，并讨论涉及的算法的功能。
 
 #### **1.2-2**
-> 假设我们正比较插入排序与归并排序在相同机器上的实现。对规模为$$n$$的输入，插入排序运行$$8n^2$$步，而归并排序运行$$64n\lg n$$步。问对哪些$$n$$值，插入排序优于归并排序？
+> 假设我们正比较插入排序与归并排序在相同机器上的实现。对规模为$$n$$的输入，插入排序运行$$8n^2$$步，而归并排序运行$$64n\lg{n}$$步。问对哪些$$n$$值，插入排序优于归并排序？
 
 由已知：
 $$
 \begin{equation}
-8n^2 \lt 64n\lg n
+8n^2 \lt 64n\lg{n}
 \end{equation}
 $$
 即：
 $$
 \begin{equation}
-\frac{n}{\lg n} \lt 8
+\frac{n}{\lg{n}} \lt 8
 \end{equation}
 $$
 又：
 $$
 \begin{equation}
-\frac{43}{\lg 43} \approx 7.79 \lt 8 \\
-\frac{44}{\lg 44} \approx 8.06 \gt 8
+\frac{43}{\lg{43}} \approx 7.79 \lt 8 \\
+\frac{44}{\lg{44}} \approx 8.06 \gt 8
 \end{equation}
 $$
 
@@ -68,14 +68,16 @@ $$
 \begin{equation}
 \frac{100n^2}{2^n} \lt 1
 \end{equation}
-
+$$
 又：
 $$
 \begin{equation}
-\frac{43}{\lg 43} \approx 7.79 \lt 8 \\
-\frac{44}{\lg 44} \approx 8.06 \gt 8
+\frac{100 \cdot (14)^2}{2^{14}} \approx 1.20 \gt 1 \\
+\frac{100 \cdot (15)^2}{2^{15}} \approx 0.69 \lt 1
 \end{equation}
 $$
+
+所以$$n$$的最小值为15。
 
 
 
