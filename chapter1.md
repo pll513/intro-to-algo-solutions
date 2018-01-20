@@ -1,6 +1,10 @@
 # 第一章 基础知识
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+**1.1-1** 给出现实生活中需要排序的一个例子或者现实生活中需要计算凸壳的一个例子。
+排序的例子：大学里发奖学金要对学院同学的成绩和社会活动得分进行排序。
+
+
+
 
 
 
