@@ -1,5 +1,5 @@
 <style>
-    thead {
+    th {
         font-weight: 400;
     }
     td:first-child {
