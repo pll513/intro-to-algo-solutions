@@ -56,8 +56,10 @@ $$
 $$
 又：
 $$
+\begin{aligned}
 \frac{43}{\lg{43}} \approx 7.79 \lt 8 \\
 \frac{44}{\lg{44}} \approx 8.06 \gt 8
+\end{aligned}
 $$
 
 所以满足插入排序优于归并排序的$$n$$不大于43。
@@ -75,8 +77,10 @@ $$
 $$
 又：
 $$
+\begin{aligned}
 \frac{100 \cdot (14)^2}{2^{14}} \approx 1.20 \gt 1 \\
 \frac{100 \cdot (15)^2}{2^{15}} \approx 0.69 \lt 1
+\end{aligned}
 $$
 
 所以$$n$$的最小值为15。
