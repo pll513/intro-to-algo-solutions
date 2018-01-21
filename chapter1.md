@@ -1,6 +1,6 @@
 <style>
     th {
-        font-weight: 400;
+        font-weight: 400!important;
     }
     td:first-child {
         width: 100px;
