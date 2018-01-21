@@ -1,3 +1,6 @@
 {
-    "plugins": "mathjax"
+    "plugins": ["styles-less", "mathjax"],
+    "styles": {
+        "website": "./styles/website.less"
+    }
 }
