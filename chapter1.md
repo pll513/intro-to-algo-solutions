@@ -1,4 +1,7 @@
 <style>
+    thead {
+        font-weight: 400;
+    }
     td:first-child {
         width: 100px;
     }
