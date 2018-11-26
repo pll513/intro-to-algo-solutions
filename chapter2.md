@@ -30,11 +30,11 @@ $$\boldsymbol{for}$$ $$j=2$$ $$\boldsymbol{to}$$ $$A.length$$
 **输入：**$$n$$个数的一个序列$$A=\langle a_1,a_2,\cdots,a_n\rangle$$和一个值$$v$$。
 写出**线性查找**的伪代码，它扫描整个序列来查找$$v$$。使用一个循环不变式来证明你的算法是正确的。确保你的循环不变式满足三条必要的性质。
 
-LINEAR-SEARCH($$A$$)
-**for** $$i=1$$ **to** $$A.length$$
-&emsp;&emsp;**if** $$v=A[i]$$
-&emsp;&emsp;&emsp;&emsp;**return** $$i$$
-**return** $$-1$$
+$$\small LINEAR$$-$$\small SEARCH$$$$(A)$$
+$$\boldsymbol{for}$$ $$i=1$$ $$\boldsymbol{to}$$ $$A.length$$
+&emsp;&emsp;$$\boldsymbol{if}$$ $$v=A[i]$$
+&emsp;&emsp;&emsp;&emsp;$$\boldsymbol{return}$$ $$i$$
+$$\boldsymbol{return}$$ $$-1$$
 
 #### **2.1-4**
 > 考虑把两个$$n$$位二进制数加起来的问题，这两个整数分别存储在两个$$n$$元数组$$A$$和$$B$$中。这两个整数的和应按二进制形式存储在一个$$(n+1)$$元数组$$C$$中。请给出该问题形式化描述，并写出伪代码。
