@@ -19,13 +19,13 @@ $$
 
 > 重写过程INSERTION-SORT，使之按非升序（而不是非降序）排序。
 
-$$\small INSERTION$$-$$\small SORT$$$$(A)\\$$$$\boldsymbol{for}\ j=2\ \boldsymbol{to}\ A.length\\$$$$\qquad key=A[j]\\$$$$\qquad i=j-1\\$$$$\qquad \boldsymbol{while}\ i>0\ and\ A[i]\lt key\\$$$$\qquad \qquad A[i+1]=A[i]\\$$$$\qquad \qquad i=i-1\\$$$$\qquad A[i+1]=key$$
+$$\small INSERTION\verb|-|SORT (A)\\ \boldsymbol{for}\ j=2\ \boldsymbol{to}\ A.length\\ \qquad key=A[j]\\ \qquad i=j-1\\ \qquad \boldsymbol{while}\ i>0\ and\ A[i]\lt key\\ \qquad \qquad A[i+1]=A[i]\\ \qquad \qquad i=i-1\\ \qquad A[i+1]=key$$
 
 ### **2.1-3**
 
 > 考虑以下**查找问题**： **输入：**$$n$$个数的一个序列$$A=\langle a_1,a_2,\cdots,a_n\rangle$$和一个值$$v$$。 写出**线性查找**的伪代码，它扫描整个序列来查找$$v$$。使用一个循环不变式来证明你的算法是正确的。确保你的循环不变式满足三条必要的性质。
 
-$$\small LINEAR$$-$$\small SEARCH$$$$(A)\\$$$$\boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length\\$$ $$\qquad \boldsymbol{if}\ v=A[i]\\$$$$\qquad \qquad \boldsymbol{return}\ i\\$$$$\qquad \boldsymbol{return} \ -1$$
+$$\small LINEAR\verb|-|SEARCH(A)\\ \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length\\ \qquad \boldsymbol{if}\ v=A[i]\\ \qquad \qquad \boldsymbol{return}\ i\\ \qquad \boldsymbol{return} \ -1$$ 
 
 ### **2.1-4**
 
