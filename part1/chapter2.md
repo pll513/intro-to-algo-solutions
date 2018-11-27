@@ -19,7 +19,7 @@ $$
 
 > 重写过程INSERTION-SORT，使之按非升序（而不是非降序）排序。
 
-$$\small INSERTION\verb|-|SORT (A)\\ \boldsymbol{for}\ j=2\ \boldsymbol{to}\ A.length\\ \qquad key=A[j]\\ \qquad i=j-1\\ \qquad \boldsymbol{while}\ i>0\ and\ A[i]\lt key\\ \qquad \qquad A[i+1]=A[i]\\ \qquad \qquad i=i-1\\ \qquad A[i+1]=key$$
+$$\small INSERTION\verb|-|SORT (A)\\ \boldsymbol{for}\ j=2\ \boldsymbol{to}\ A.length\\ \qquad key=A[j]\\ \qquad i=j-1\\ \qquad \boldsymbol{while}\ i>0\ {\rm and}\ A[i]\lt key\\ \qquad \qquad A[i+1]=A[i]\\ \qquad \qquad i=i-1\\ \qquad A[i+1]=key$$
 
 ### **2.1-3**
 
@@ -39,6 +39,8 @@ $$\small LINEAR\verb|-|SEARCH(A)\\ \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.len
 
 > 考虑把两个$$n$$位二进制数加起来的问题，这两个整数分别存储在两个$$n$$元数组$$A$$和$$B$$中。这两个整数的和应按二进制形式存储在一个$$(n+1)$$元数组$$C$$中。请给出该问题的形式化描述，并写出伪代码。
 
+ 
+
 ### **2.2-1**
 
 > 用$$\Theta$$记号表示$$n^3/1000-100n^2-100n+3$$。
@@ -49,7 +51,9 @@ $$\Theta(n^3)$$。
 
 > 考虑排序存储在数组中的$$n$$个数：首先找出$$A$$中的最小元素并将其与$$A[1]$$中的元素进行交换。接着，找出$$A$$中的次最小元素并将其与$$A[2]$$中的元素进行交换。对$$A$$中前$$n-1$$个元素按该方式继续。该算法称为**选择算法**。写出其伪代码。该算法维持的循环不变式是什么？为什么它只需要对前$$n-1$$个元素进行？用$$\Theta$$记号给出选择排序的最好情况与最坏情况运行时间。
 
+$$\small SELECTION\verb|-|SORT (A)\\  n=A.length\\  \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n-1\\  \qquad smallest=j\\  \qquad \boldsymbol{for}\ i=j+1\ \boldsymbol{to}\ n\\  \qquad\qquad \boldsymbol{if} A[i]<A[smallest]\\  \qquad\qquad\qquad smallest=i\\  \qquad {\rm exchange}\ A[j]\ {\rm with}\ A[smallest]$$
 
+在每次进入外部的 $$\boldsymbol{for}$$ 循环前， $$A[1..j-1]$$ 包含 $$A$$ 中最小的 $$j-1$$ 个元素且它们已按从小到大排列。因为循环终止时 $$j=n$$ ，此时 $$A[1..n-1]$$包含 $$A$$ 中最小的 $$n-1$$ 个元素，剩下的 $$A[n]$$ 就是A的最大元素。
 
 ### **2.2-3**
 
@@ -62,4 +66,20 @@ $$\Theta(n^3)$$。
 > 应如何修改一个算法，才能使之具有良好的最好情况运行时间？
 
 没这个必要，先有蛋后有鸡。
+
+### 2.3-1
+
+> 使用图2-4作为模型，说明归并排序在数组 $$A=\langle 3,41,52,26,38,57,9,49\rangle$$ 上的操作。
+
+### 2.3-2
+
+> 重写过程 $$\small MERGE$$ ，使之不使用哨兵，而是一旦数组 $$L$$ 或 $$R$$ 的所有元素被复制回 $$A$$ 就立刻停止，然后把另一个数组的剩余部分复制回 $$A$$ 。
+
+### 2.3-3
+
+> 使用数学归纳法证明：当 $$n$$ 刚好是 $$2$$ 的幂时，以下递归式的解是 $$T(n)=n\lg n$$ 。 $$\\T(n) = \begin{cases} 2 & \text{若 $n=2$} \\2T(n/2)+n & \text{若 $n=2^k,k>0$} \end{cases}$$
+
+### 2.3-4
+
+> 我们可以把插入排序表示为如下的一个递归过程。为了排序 $$A[1..n]$$，我们递归地排序 $$A[1..n-1]$$ ，然后把 $$A[n]$$ 插入已排序的数组 $$A[1..n-1]$$ 。为插入排序的这个递归版本的最坏情况运行时间写一个递归式。
 
