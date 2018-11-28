@@ -82,6 +82,8 @@ $$
 
 > 重写过程 $$\small \rm MERGE$$ ，使之不使用哨兵，而是一旦数组 $$L$$ 或 $$R$$ 的所有元素被复制回 $$A$$ 就立刻停止，然后把另一个数组的剩余部分复制回 $$A$$ 。
 
+$$\small {\rm MERGE} (A,p,q,r)\\  n_1 = q - p + 1\\ n_2 = r - q\\ {\rm let}\ L[1..n_1]\ {\rm and}\ R[1..n_2]\ {\rm be\ new\ arrays}\\ \boldsymbol{for}\ i=1\ \boldsymbol{to}\ n_1\\  \qquad L[i]=A[p+i-1]\\ \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n_2\\  \qquad R[i]=A[q+j]\\ i=1\\ j=1\\ k=p\\ \boldsymbol{while}\ i \leq n_1\ {\rm and}\ j \leq n_2\\ \qquad\boldsymbol{if}\ L[i] \leq R[j]\\ \qquad\qquad A[k]=L[i]\\ \qquad\qquad i=i+1\\ \qquad\boldsymbol{else}\\ \qquad\qquad A[k]=R[j]\\ \qquad\qquad j=j+1\\ \qquad k=k+1\\ \boldsymbol{for}\ i=i\ \boldsymbol{to}\ n_1\\ \qquad A[k]=L[i]\\ \qquad k=k+1\\ \boldsymbol{for}\ j=j\ \boldsymbol{to}\ n_2\\ \qquad A[k]=R[j]\\ \qquad k=k+1$$
+
 ### 2.3-3
 
 > 使用数学归纳法证明：当 $$n$$ 刚好是 $$2$$ 的幂时，以下递归式的解是 $$T(n)=n\lg n$$ 。 $$\\T(n) = \begin{cases} 2 & \text{若 $n=2$} \\2T(n/2)+n & \text{若 $n=2^k,k>0$} \end{cases}$$
@@ -91,4 +93,8 @@ $$
 ### 2.3-4
 
 > 我们可以把插入排序表示为如下的一个递归过程。为了排序 $$A[1..n]$$，我们递归地排序 $$A[1..n-1]$$ ，然后把 $$A[n]$$ 插入已排序的数组 $$A[1..n-1]$$ 。为插入排序的这个递归版本的最坏情况运行时间写一个递归式。
+
+$$
+\\T(n) = \begin{cases} c & \text{若 $n=1$} \\T(n-1)+cn & \text{若 $n\gt 1$} \end{cases}
+$$
 
