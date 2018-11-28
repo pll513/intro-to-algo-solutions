@@ -98,3 +98,33 @@ $$
 \\T(n) = \begin{cases} c & \text{若 $n=1$} \\T(n-1)+cn & \text{若 $n\gt 1$} \end{cases}
 $$
 
+### 2.3-5
+
+> 回顾查找问题，注意到，如果序列 $$A$$ 已排好序，就可以将该序列的中点与 $$v$$ 进行比较。根据比较的结果，原序列中有一半就可以不用再做进一步的考虑了。**二分查找**重复这个过程，每次都将序列剩余部分的规模减半。为二分查找写出迭代或递归的伪代码。证明：二分查找的最坏情况运行时间为 $$\Theta(\lg n)$$ 。
+
+直接把迭代版本和递归版本的答案都搬过来：
+
+$$\small {\rm ITERATIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,high)\\ \boldsymbol{while}\ low \leq high\\ \qquad mid=\lfloor(low+high)/2\rfloor\\ \qquad \boldsymbol{if}\ v==A[mid]\\ \qquad\qquad \boldsymbol{return}\ mid\\ \qquad \boldsymbol{elseif}\ v>A[mid]\\ \qquad\qquad low = mid + 1\\ \qquad \boldsymbol{else}\ high=mid-1\\ \boldsymbol{return}\ {\rm NIL}$$ 
+
+$$\small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,high)\\ \boldsymbol{if}\ low \gt high\\ \qquad \boldsymbol{return}\ {\rm NIL}\\ mid=\lfloor(low+high)/2\rfloor\\ \boldsymbol{if}\ v==A[mid]\\ \qquad\boldsymbol{return}\ mid\\ \boldsymbol{elseif}\ v>A[mid]\\ \qquad\boldsymbol{return}\ \small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,mid+1,high)\\ \boldsymbol{else}\ \boldsymbol{return}\ \small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,mid-1)$$ 
+
+每次迭代或者递归调用都可以把问题规模缩小一半。可以写出二分查找的递归式为 $$T(n)=T(n/2)+c$$，因此二分查找的最坏情况运行时间为 $$\Theta(lg n)$$ 。
+
+### 2.3-6
+
+> 注意到2.1节中的过程 $$\small \rm INSERTION\verb|-|SORT$$ 的第5~7行的 $$\boldsymbol{while}$$ 循环采用了一种线性查找来（反向）扫描已排好序的子数组 $$A[1..j-1]$$ 。我们可以使用二分查找来把插入排序的最坏情况总运行时间改进到 $$\Theta(n\lg n)$$ 吗？
+
+不能。设每次进入外循环已排好序的子数组为 $$A[1..k-1]$$ ，虽然可以使用二分查找 $$\Theta(\lg k)$$的运行时间内找到插入位置 $$p$$ ，但挪动位置 $$p$$ 后面的元素 $$A[p+1..k-1]$$ 仍需要 $$\Theta(k)$$ 的运行时间。
+
+### \*2.3-7
+
+> 描述一个运行时间为 $$\Theta(n\lg n)$$ 的算法，给定 $$n$$ 个整数的集合 $$S$$ 和另一个整数 $$x$$ ，该算法能确定 $$S$$ 中是否存在两个其和刚好为 $$x$$ 的元素。
+
+$$\small {\rm TWO\verb|-|SUM}(S,x)\\ n=S.length\\ {\rm MERGE\verb|-|SORT}(S,1,n)\\ low=1\\ high=n\\ \boldsymbol{while}\ low\lt high\\ \qquad sum=S[low]+S[high]\\ \qquad \boldsymbol{if}\ sum\lt x\\ \qquad\qquad low=low+1\\ \qquad \boldsymbol{elseif}\ sum\gt x\\ \qquad\qquad high=high-1\\ \qquad \boldsymbol{else}\\ \qquad\qquad \boldsymbol{return}\ {\rm true}\\ \boldsymbol{return}\ {\rm false}$$ 
+
+$$\small {\rm TWO\verb|-|SUM}$$ 接收一个数组 $$S$$ 和整数 $$x$$ 作为输入参数，首先对 $$S$$ 进行升序排列，接着用 $$low$$ 和 $$high$$ 分别从头和尾寻找结果。$$\small {\rm MERGE\verb|-|SORT}$$ 需要 $$\Theta(n\lg n)$$ 的运行时间； $$\boldsymbol{while}$$ 循环需要 $$\Theta(n)$$ 的运行时间，故 $$\small {\rm TWO\verb|-|SUM}$$ 总共耗费 $$\Theta(n\lg n)$$ 的运行时间。
+
+相关问题：[https://leetcode.com/problems/two-sum/description/](https://leetcode.com/problems/two-sum/description/)
+
+
+
