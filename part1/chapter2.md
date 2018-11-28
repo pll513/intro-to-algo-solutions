@@ -19,13 +19,13 @@ $$
 
 > 重写过程INSERTION-SORT，使之按非升序（而不是非降序）排序。
 
-$$\small INSERTION\verb|-|SORT (A)\\ \boldsymbol{for}\ j=2\ \boldsymbol{to}\ A.length\\ \qquad key=A[j]\\ \qquad i=j-1\\ \qquad \boldsymbol{while}\ i>0\ {\rm and}\ A[i]\lt key\\ \qquad \qquad A[i+1]=A[i]\\ \qquad \qquad i=i-1\\ \qquad A[i+1]=key$$
+$$\small {\rm INSERTION\verb|-|SORT}(A)\\ \boldsymbol{for}\ j=2\ \boldsymbol{to}\ A.length\\ \qquad key=A[j]\\ \qquad i=j-1\\ \qquad \boldsymbol{while}\ i>0\ {\rm and}\ A[i]\lt key\\ \qquad \qquad A[i+1]=A[i]\\ \qquad \qquad i=i-1\\ \qquad A[i+1]=key$$
 
 ### **2.1-3**
 
 > 考虑以下**查找问题**： **输入：**$$n$$ 个数的一个序列 $$A=\langle a_1,a_2,\cdots,a_n\rangle$$ 和一个值 $$v$$ 。 写出**线性查找**的伪代码，它扫描整个序列来查找 $$v$$ 。使用一个循环不变式来证明你的算法是正确的。确保你的循环不变式满足三条必要的性质。
 
-$$\small LINEAR\verb|-|SEARCH(A)\\ \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length\\ \qquad \boldsymbol{if}\ v==A[i]\\ \qquad \qquad \boldsymbol{return}\ i\\ \boldsymbol{return} \ -1$$ 
+$$\small {\rm LINEAR\verb|-|SEARCH}(A)\\ \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length\\ \qquad \boldsymbol{if}\ v==A[i]\\ \qquad \qquad \boldsymbol{return}\ i\\ \boldsymbol{return} \ \rm NIL$$ 
 
 **循环不变式：**在 $$\boldsymbol{for}$$ 循环的每次迭代开始时 $$v$$ 不在 $$A[1..i-1]$$ 中 ，即 $$v$$ 在 $$A[i..n]$$ 中。
 
@@ -39,7 +39,7 @@ $$\small LINEAR\verb|-|SEARCH(A)\\ \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.len
 
 > 考虑把两个$$n$$位二进制数加起来的问题，这两个整数分别存储在两个$$n$$元数组$$A$$和$$B$$中。这两个整数的和应按二进制形式存储在一个$$(n+1)$$元数组$$C$$中。请给出该问题的形式化描述，并写出伪代码。
 
- 
+$$\small {\rm BINARY\verb|-|ADD}(A,B,C)\\ carry=0\\  \boldsymbol{for}\ i=A.length\ \boldsymbol{to}\ 1\\ \qquad sum = A[i] + B[i] + carry\\  \qquad\boldsymbol{if} sum > 1\\  \qquad\qquad carry = 1\\  \qquad\qquad C[i+1] = sum - 2\\ \qquad\boldsymbol{else}\\  \qquad\qquad carry = 0\\  \qquad\qquad C[i+1] = sum\\ C[1] = carry$$ 
 
 ### **2.2-1**
 
@@ -51,7 +51,7 @@ $$\Theta(n^3)$$。
 
 > 考虑排序存储在数组中的$$n$$个数：首先找出$$A$$中的最小元素并将其与$$A[1]$$中的元素进行交换。接着，找出$$A$$中的次最小元素并将其与$$A[2]$$中的元素进行交换。对$$A$$中前$$n-1$$个元素按该方式继续。该算法称为**选择算法**。写出其伪代码。该算法维持的循环不变式是什么？为什么它只需要对前$$n-1$$个元素进行？用$$\Theta$$记号给出选择排序的最好情况与最坏情况运行时间。
 
-$$\small SELECTION\verb|-|SORT (A)\\  n=A.length\\  \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n-1\\  \qquad smallest=j\\  \qquad \boldsymbol{for}\ i=j+1\ \boldsymbol{to}\ n\\  \qquad\qquad \boldsymbol{if} A[i]<A[smallest]\\  \qquad\qquad\qquad smallest=i\\  \qquad {\rm exchange}\ A[j]\ {\rm with}\ A[smallest]$$
+$$\small {\rm SELECTION\verb|-|SORT} (A)\\  n=A.length\\  \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n-1\\  \qquad smallest=j\\  \qquad \boldsymbol{for}\ i=j+1\ \boldsymbol{to}\ n\\  \qquad\qquad \boldsymbol{if} A[i]<A[smallest]\\  \qquad\qquad\qquad smallest=i\\  \qquad {\rm exchange}\ A[j]\ {\rm with}\ A[smallest]$$
 
 在每次进入外部的 $$\boldsymbol{for}$$ 循环前， $$A[1..j-1]$$ 包含 $$A$$ 中最小的 $$j-1$$ 个元素且它们已按从小到大排列。因为循环终止时 $$j=n$$ ，此时 $$A[1..n-1]$$包含 $$A$$ 中最小的 $$n-1$$ 个元素，剩下的 $$A[n]$$ 就是A的最大元素。
 
@@ -71,13 +71,22 @@ $$\small SELECTION\verb|-|SORT (A)\\  n=A.length\\  \boldsymbol{for}\ j=1\ \bold
 
 > 使用图2-4作为模型，说明归并排序在数组 $$A=\langle 3,41,52,26,38,57,9,49\rangle$$ 上的操作。
 
+$$
+\langle 3,9,26,38,41,49,52,57\rangle\\
+\langle 3,26,41,52\rangle\quad\langle 9,38,49,57\rangle\\
+\langle 3, 41\rangle\quad\langle 26,52\rangle\quad\langle 38,57\rangle\quad\langle 9,49\rangle\\
+\langle 3\rangle \langle 41\rangle\quad\langle 52\rangle \langle 26\rangle\quad\langle 38\rangle \langle 57\rangle\quad\langle 9\rangle \langle 49\rangle\\
+$$
+
 ### 2.3-2
 
-> 重写过程 $$\small MERGE$$ ，使之不使用哨兵，而是一旦数组 $$L$$ 或 $$R$$ 的所有元素被复制回 $$A$$ 就立刻停止，然后把另一个数组的剩余部分复制回 $$A$$ 。
+> 重写过程 $$\small \rm MERGE$$ ，使之不使用哨兵，而是一旦数组 $$L$$ 或 $$R$$ 的所有元素被复制回 $$A$$ 就立刻停止，然后把另一个数组的剩余部分复制回 $$A$$ 。
 
 ### 2.3-3
 
 > 使用数学归纳法证明：当 $$n$$ 刚好是 $$2$$ 的幂时，以下递归式的解是 $$T(n)=n\lg n$$ 。 $$\\T(n) = \begin{cases} 2 & \text{若 $n=2$} \\2T(n/2)+n & \text{若 $n=2^k,k>0$} \end{cases}$$
+
+对 $$k$$ 归纳，证明 $$T(2^k)=2^k\lg{2^k}$$， $$k\geq 1$$ ： $$k=1$$ 时， $$T(2^1)=2\lg2=2$$ ，递归式成立； $$k\geq 1$$ 时，有 $$T(2^{k+1})=2 T(2^k)+2^{k+1}=2^{k+1}\lg{2^k}+2^{k+1}\lg2=2^{k+1}\lg{2^{k+1}}$$ ，递归式也成立，得证。
 
 ### 2.3-4
 
