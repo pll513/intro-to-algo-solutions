@@ -126,5 +126,33 @@ $$\small {\rm TWO\verb|-|SUM}$$ 接收一个数组 $$S$$ 和整数 $$x$$ 作为�
 
 相关问题：[https://leetcode.com/problems/two-sum/description/](https://leetcode.com/problems/two-sum/description/)
 
+## 思考题
+
+### 2-1
+
+> _（在归并排序中对小数组采用插入排序）_虽然归并排序的最坏情况运行时间为 $$\Theta(n\lg n)$$ 。而插入排序的最坏情况运行时间为 $$\Theta(n^2)$$ ，但是插入排序中的常量因子可能使得它在 $$n$$ 较小时，在许多机器上实际运行地更快。因此，在归并排序中当子问题变得足够小时，采用插入排序来使递归时的叶**变粗**是有意义的。考虑对归并排序的一种修改，其中使用插入排序来排序长度为 $$k$$ 的 $$n/k$$ 个子表，然后使用标准的合并机制来合并这些子表，这里 $$k$$ 是一个待定的值。
+
+> **a.** 证明：插入排序最坏情况可以在 $$\Theta(nk)$$ 时间内排序每个长度为 $$k$$ 的 $$n/k$$ 个子表。
+
+> **b.** 表明在最坏情况下如何在 $$\Theta(n\lg{(n/k)})$$ 时间内合并这些子表。
+
+> **c.** 假定修改后的算法的最坏运行时间为 $$\Theta(nk+n\lg{(n/k)})$$ ，要使修改后的算法与标准的归并排序具有相同的运行时间，作为 $$n$$ 的一个函数，借助 $$\Theta$$ 记号， $$k$$ 的最大值是什么？
+
+> **d.** 在实践中，我们应该如何选择 $$k$$ ？
+
+### 2-2
+
+> （冒泡排序的正确性）冒泡排序是一种流行但低效的排序算法，它的作用时反复交换相邻的未按次序排列的元素。
+
+$$\small {\rm BUBBLESORT}(A)\\ 1\quad \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length-1\\ 2\quad\qquad \boldsymbol{for}\ j=A.length\ \boldsymbol{downto}\ i+1\\ 3\quad\qquad\qquad \boldsymbol{if}\ A[j]\lt A[j-1]\\ 4\quad\qquad\qquad\qquad {\rm exchange}\ A[j]\ {\rm with}\ A[j-1]$$
+
+> **a.** 假设 $$A'$$ 表示 $$\small {\rm BUBBLESORT}(A)$$ 的输出。为了证明 $$\small {\rm BUBBLESORT}$$ 正确，我们必须证明它将终止并且有： $$\\A'[1]\leq A'[2]\leq\cdots\leq A'[n]\tag{2.3}$$其中 $$n=A.length$$ 。为了证明 $$\small {\rm BUBBLESORT}$$ 确实完成了排序，我们还需要证明什么？下面两部分将证明不等式 $$\small (2.3)$$ 。
+
+> **b.** 为第2~4行的 $$\boldsymbol{for}$$ 循环精确地说明一个循环不变式，并证明该循环不变式成立。你的证明应该使用本章中给出的循环不变式证明的结构。
+
+> **c.** 使用\(b\)部证明的循环不变式的终止条件，为第1~4行的 $$\boldsymbol{for}$$ 循环说明一个循环不变式，该不变式将使你能证明不等式 $$\small (2.3)$$ 。你的证明应该使用本章中给出的循环不变式证明的结构。
+
+> **d.** 冒泡排序的最坏情况运行时间是多少？与插入排序的运行时间相比，其性能如何？
+
 
 
