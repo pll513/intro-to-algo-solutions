@@ -19,13 +19,13 @@ $$
 
 > 重写过程INSERTION-SORT，使之按非升序（而不是非降序）排序。
 
-$$\small {\rm INSERTION\verb|-|SORT}(A)\\ 1\quad \boldsymbol{for}\ j=2\ \boldsymbol{to}\ A.length\\ 2\quad \qquad key=A[j]\\ 3\quad \qquad i=j-1\\ 4\quad \qquad \boldsymbol{while}\ i>0\ {\rm and}\ A[i]\lt key\\ 5\quad \qquad \qquad A[i+1]=A[i]\\ 6\quad \qquad \qquad i=i-1\\ 7\quad \qquad A[i+1]=key$$
+$$\small \!{\rm INSERTION\verb|-|SORT}(A)\\ 1\quad \boldsymbol{for}\ j=2\ \boldsymbol{to}\ A.length\\ 2\quad \qquad key=A[j]\\ 3\quad \qquad i=j-1\\ 4\quad \qquad \boldsymbol{while}\ i>0\ {\rm and}\ A[i]\lt key\\ 5\quad \qquad \qquad A[i+1]=A[i]\\ 6\quad \qquad \qquad i=i-1\\ 7\quad \qquad A[i+1]=key$$
 
 ### **2.1-3**
 
 > 考虑以下**查找问题**： **输入：**$$n$$ 个数的一个序列 $$A=\langle a_1,a_2,\cdots,a_n\rangle$$ 和一个值 $$v$$ 。 写出**线性查找**的伪代码，它扫描整个序列来查找 $$v$$ 。使用一个循环不变式来证明你的算法是正确的。确保你的循环不变式满足三条必要的性质。
 
-$$\small {\rm LINEAR\verb|-|SEARCH}(A)\\ 1\quad \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length\\ 2\quad \qquad \boldsymbol{if}\ v==A[i]\\ 3\quad \qquad \qquad \boldsymbol{return}\ i\\ 4\quad \boldsymbol{return} \ \rm NIL$$ 
+$$\small \!{\rm LINEAR\verb|-|SEARCH}(A)\\ 1\quad \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length\\ 2\quad \qquad \boldsymbol{if}\ v==A[i]\\ 3\quad \qquad \qquad \boldsymbol{return}\ i\\ 4\quad \boldsymbol{return} \ \rm NIL$$ 
 
 **循环不变式：**在 $$\boldsymbol{for}$$ 循环的每次迭代开始时 $$v$$ 不在 $$A[1..i-1]$$ 中 ，即 $$v$$ 在 $$A[i..n]$$ 中。
 
@@ -39,7 +39,7 @@ $$\small {\rm LINEAR\verb|-|SEARCH}(A)\\ 1\quad \boldsymbol{for}\ i=1\ \boldsymb
 
 > 考虑把两个$$n$$位二进制数加起来的问题，这两个整数分别存储在两个$$n$$元数组$$A$$和$$B$$中。这两个整数的和应按二进制形式存储在一个$$(n+1)$$元数组$$C$$中。请给出该问题的形式化描述，并写出伪代码。
 
-$$\small {\rm BINARY\verb|-|ADD}(A,B,C)\\ \ \ 1\quad carry=0\\  \ \ 2\quad \boldsymbol{for}\ i=A.length\ \boldsymbol{to}\ 1\\ \ \ 3\quad \qquad sum = A[i] + B[i] + carry\\  \ \ 4\quad \qquad\boldsymbol{if} sum > 1\\ \ \ 5\quad \qquad\qquad carry = 1\\  \ \ 6\quad \qquad\qquad C[i+1] = sum - 2\\ \ \ 7\quad \qquad\boldsymbol{else}\\  \ \ 8\quad \qquad\qquad carry = 0\\  \ \ 9\quad \qquad\qquad C[i+1] = sum\\ 10\quad C[1] = carry$$ 
+$$\small \!{\rm BINARY\verb|-|ADD}(A,B,C)\\ \ \ 1\quad carry=0\\  \ \ 2\quad \boldsymbol{for}\ i=A.length\ \boldsymbol{to}\ 1\\ \ \ 3\quad \qquad sum = A[i] + B[i] + carry\\  \ \ 4\quad \qquad\boldsymbol{if} sum > 1\\ \ \ 5\quad \qquad\qquad carry = 1\\  \ \ 6\quad \qquad\qquad C[i+1] = sum - 2\\ \ \ 7\quad \qquad\boldsymbol{else}\\  \ \ 8\quad \qquad\qquad carry = 0\\  \ \ 9\quad \qquad\qquad C[i+1] = sum\\ 10\quad C[1] = carry$$ 
 
 ### **2.2-1**
 
@@ -51,7 +51,7 @@ $$\Theta(n^3)$$。
 
 > 考虑排序存储在数组中的$$n$$个数：首先找出$$A$$中的最小元素并将其与$$A[1]$$中的元素进行交换。接着，找出$$A$$中的次最小元素并将其与$$A[2]$$中的元素进行交换。对$$A$$中前$$n-1$$个元素按该方式继续。该算法称为**选择算法**。写出其伪代码。该算法维持的循环不变式是什么？为什么它只需要对前$$n-1$$个元素进行？用$$\Theta$$记号给出选择排序的最好情况与最坏情况运行时间。
 
-$$\small {\rm SELECTION\verb|-|SORT} (A)\\  1\quad n=A.length\\  2\quad \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n-1\\  3\quad \qquad smallest=j\\  4\quad \qquad \boldsymbol{for}\ i=j+1\ \boldsymbol{to}\ n\\  5\quad \qquad\qquad \boldsymbol{if} A[i]<A[smallest]\\  6\quad \qquad\qquad\qquad smallest=i\\  7\quad \qquad {\rm exchange}\ A[j]\ {\rm with}\ A[smallest]$$
+$$\small \!{\rm SELECTION\verb|-|SORT} (A)\\  1\quad n=A.length\\  2\quad \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n-1\\  3\quad \qquad smallest=j\\  4\quad \qquad \boldsymbol{for}\ i=j+1\ \boldsymbol{to}\ n\\  5\quad \qquad\qquad \boldsymbol{if} A[i]<A[smallest]\\  6\quad \qquad\qquad\qquad smallest=i\\  7\quad \qquad {\rm exchange}\ A[j]\ {\rm with}\ A[smallest]$$
 
 在每次进入外部的 $$\boldsymbol{for}$$ 循环前， $$A[1..j-1]$$ 包含 $$A$$ 中最小的 $$j-1$$ 个元素且它们已按从小到大排列。因为循环终止时 $$j=n$$ ，此时 $$A[1..n-1]$$包含 $$A$$ 中最小的 $$n-1$$ 个元素，剩下的 $$A[n]$$ 就是A的最大元素。
 
@@ -82,7 +82,7 @@ $$
 
 > 重写过程 $$\small \rm MERGE$$ ，使之不使用哨兵，而是一旦数组 $$L$$ 或 $$R$$ 的所有元素被复制回 $$A$$ 就立刻停止，然后把另一个数组的剩余部分复制回 $$A$$ 。
 
-$$\small {\rm MERGE} (A,p,q,r)\\  \ \ 1\quad n_1 = q - p + 1\\ \ \ 2\quad n_2 = r - q\\ \ \ 3\quad {\rm let}\ L[1..n_1]\ {\rm and}\ R[1..n_2]\ {\rm be\ new\ arrays}\\ \ \ 4\quad \boldsymbol{for}\ i=1\ \boldsymbol{to}\ n_1\\  \ \ 5\quad \qquad L[i]=A[p+i-1]\\ \ \ 6\quad \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n_2\\  \ \ 7\quad \qquad R[i]=A[q+j]\\ \ \ 8\quad i=1\\ \ \ 9\quad j=1\\  10\quad k=p\\ 11\quad \boldsymbol{while}\ i \leq n_1\ {\rm and}\ j \leq n_2\\ 12\quad \qquad\boldsymbol{if}\ L[i] \leq R[j]\\ 13\quad \qquad\qquad A[k]=L[i]\\ 14\quad \qquad\qquad i=i+1\\ 15\quad \qquad\boldsymbol{else}\\ 16\quad \qquad\qquad A[k]=R[j]\\ 17\quad \qquad\qquad j=j+1\\ 18\quad \qquad k=k+1\\ 19\quad \boldsymbol{for}\ i=i\ \boldsymbol{to}\ n_1\\ 20\quad \qquad A[k]=L[i]\\ 21\quad \qquad k=k+1\\ 22\quad \boldsymbol{for}\ j=j\ \boldsymbol{to}\ n_2\\ 23\quad \qquad A[k]=R[j]\\ 24\quad \qquad k=k+1$$
+$$\small \!{\rm MERGE} (A,p,q,r)\\  \ \ 1\quad n_1 = q - p + 1\\ \ \ 2\quad n_2 = r - q\\ \ \ 3\quad {\rm let}\ L[1..n_1]\ {\rm and}\ R[1..n_2]\ {\rm be\ new\ arrays}\\ \ \ 4\quad \boldsymbol{for}\ i=1\ \boldsymbol{to}\ n_1\\  \ \ 5\quad \qquad L[i]=A[p+i-1]\\ \ \ 6\quad \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n_2\\  \ \ 7\quad \qquad R[i]=A[q+j]\\ \ \ 8\quad i=1\\ \ \ 9\quad j=1\\  10\quad k=p\\ 11\quad \boldsymbol{while}\ i \leq n_1\ {\rm and}\ j \leq n_2\\ 12\quad \qquad\boldsymbol{if}\ L[i] \leq R[j]\\ 13\quad \qquad\qquad A[k]=L[i]\\ 14\quad \qquad\qquad i=i+1\\ 15\quad \qquad\boldsymbol{else}\\ 16\quad \qquad\qquad A[k]=R[j]\\ 17\quad \qquad\qquad j=j+1\\ 18\quad \qquad k=k+1\\ 19\quad \boldsymbol{for}\ i=i\ \boldsymbol{to}\ n_1\\ 20\quad \qquad A[k]=L[i]\\ 21\quad \qquad k=k+1\\ 22\quad \boldsymbol{for}\ j=j\ \boldsymbol{to}\ n_2\\ 23\quad \qquad A[k]=R[j]\\ 24\quad \qquad k=k+1$$
 
 ### 2.3-3
 
@@ -104,9 +104,9 @@ $$
 
 直接把迭代版本和递归版本的答案都搬过来：
 
-$$\small {\rm ITERATIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,high)\\ 1\quad \boldsymbol{while}\ low \leq high\\ 2\quad \qquad mid=\lfloor(low+high)/2\rfloor\\ 3\quad \qquad \boldsymbol{if}\ v==A[mid]\\ 4\quad \qquad\qquad \boldsymbol{return}\ mid\\ 5\quad \qquad \boldsymbol{elseif}\ v>A[mid]\\ 6\quad \qquad\qquad low = mid + 1\\ 7\quad \qquad \boldsymbol{else}\ high=mid-1\\ 8\quad \boldsymbol{return}\ {\rm NIL}$$ 
+$$\small \!{\rm ITERATIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,high)\\ 1\quad \boldsymbol{while}\ low \leq high\\ 2\quad \qquad mid=\lfloor(low+high)/2\rfloor\\ 3\quad \qquad \boldsymbol{if}\ v==A[mid]\\ 4\quad \qquad\qquad \boldsymbol{return}\ mid\\ 5\quad \qquad \boldsymbol{elseif}\ v>A[mid]\\ 6\quad \qquad\qquad low = mid + 1\\ 7\quad \qquad \boldsymbol{else}\ high=mid-1\\ 8\quad \boldsymbol{return}\ {\rm NIL}$$ 
 
-$$\small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,high)\\ 1\quad \boldsymbol{if}\ low \gt high\\ 2\quad \qquad \boldsymbol{return}\ {\rm NIL}\\ 3\quad mid=\lfloor(low+high)/2\rfloor\\ 4\quad \boldsymbol{if}\ v==A[mid]\\ 5\quad \qquad\boldsymbol{return}\ mid\\ 6\quad \boldsymbol{elseif}\ v>A[mid]\\ 7\quad \qquad\boldsymbol{return}\ \small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,mid+1,high)\\ 8\quad \boldsymbol{else}\ \boldsymbol{return}\ \small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,mid-1)$$ 
+$$\small \!{\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,high)\\ 1\quad \boldsymbol{if}\ low \gt high\\ 2\quad \qquad \boldsymbol{return}\ {\rm NIL}\\ 3\quad mid=\lfloor(low+high)/2\rfloor\\ 4\quad \boldsymbol{if}\ v==A[mid]\\ 5\quad \qquad\boldsymbol{return}\ mid\\ 6\quad \boldsymbol{elseif}\ v>A[mid]\\ 7\quad \qquad\boldsymbol{return}\ \small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,mid+1,high)\\ 8\quad \boldsymbol{else}\ \boldsymbol{return}\ \small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,mid-1)$$ 
 
 每次迭代或者递归调用都可以把问题规模缩小一半。可以写出二分查找的递归式为 $$T(n)=T(n/2)+c$$，因此二分查找的最坏情况运行时间为 $$\Theta(lg n)$$ 。
 
@@ -120,7 +120,7 @@ $$\small {\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,high)\\ 1\quad \bol
 
 > 描述一个运行时间为 $$\Theta(n\lg n)$$ 的算法，给定 $$n$$ 个整数的集合 $$S$$ 和另一个整数 $$x$$ ，该算法能确定 $$S$$ 中是否存在两个其和刚好为 $$x$$ 的元素。
 
-$$\small {\rm TWO\verb|-|SUM}(S,x)\\ \ \ 1\quad n=S.length\\ \ \ 2\quad {\rm MERGE\verb|-|SORT}(S,1,n)\\ \ \ 3\quad low=1\\ \ \ 4\quad high=n\\ \ \ 5\quad \boldsymbol{while}\ low\lt high\\ \ \ 6\quad \qquad sum=S[low]+S[high]\\ \ \ 7\quad \qquad \boldsymbol{if}\ sum\lt x\\ \ \ 8\quad \qquad\qquad low=low+1\\ \ \ 9\quad \qquad \boldsymbol{elseif}\ sum\gt x\\ 10\quad \qquad\qquad high=high-1\\ 11\quad \qquad \boldsymbol{else}\ \boldsymbol{return}\ {\rm true}\\ 12\quad \boldsymbol{return}\ {\rm false}$$ 
+$$\small \!{\rm TWO\verb|-|SUM}(S,x)\\ \ \ 1\quad n=S.length\\ \ \ 2\quad {\rm MERGE\verb|-|SORT}(S,1,n)\\ \ \ 3\quad low=1\\ \ \ 4\quad high=n\\ \ \ 5\quad \boldsymbol{while}\ low\lt high\\ \ \ 6\quad \qquad sum=S[low]+S[high]\\ \ \ 7\quad \qquad \boldsymbol{if}\ sum\lt x\\ \ \ 8\quad \qquad\qquad low=low+1\\ \ \ 9\quad \qquad \boldsymbol{elseif}\ sum\gt x\\ 10\quad \qquad\qquad high=high-1\\ 11\quad \qquad \boldsymbol{else}\ \boldsymbol{return}\ {\rm true}\\ 12\quad \boldsymbol{return}\ {\rm false}$$ 
 
 $$\small {\rm TWO\verb|-|SUM}$$ 接收一个数组 $$S$$ 和整数 $$x$$ 作为输入参数，首先对 $$S$$ 进行升序排列，接着用 $$low$$ 和 $$high$$ 分别从头和尾寻找结果。$$\small {\rm MERGE\verb|-|SORT}$$ 需要 $$\Theta(n\lg n)$$ 的运行时间； $$\boldsymbol{while}$$ 循环需要 $$\Theta(n)$$ 的运行时间，故 $$\small {\rm TWO\verb|-|SUM}$$ 总共耗费 $$\Theta(n\lg n)$$ 的运行时间。
 
@@ -148,13 +148,13 @@ $$\small {\rm TWO\verb|-|SUM}$$ 接收一个数组 $$S$$ 和整数 $$x$$ 作为�
 
 > **d.** 在实践中，我们应该如何选择 $$k$$ ？
 
-实践中还要考虑常数因子和运行环境等要素，需要根据实际的程序运行时间来确定 $$k$$ 的取值。
+实践中还要考虑被 $$\Theta$$ 记号省略的常数因子，数据的输入规模以及程序的运行环境等要素，所以需要根据实际的程序运行时间来确定 $$k$$ 的取值。
 
 ### 2-2
 
 > _（冒泡排序的正确性）_冒泡排序是一种流行但低效的排序算法，它的作用时反复交换相邻的未按次序排列的元素。
 >
-> $$\small {\rm BUBBLESORT}(A)\\ 1\quad \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length-1\\ 2\quad\qquad \boldsymbol{for}\ j=A.length\ \boldsymbol{downto}\ i+1\\ 3\quad\qquad\qquad \boldsymbol{if}\ A[j]\lt A[j-1]\\ 4\quad\qquad\qquad\qquad {\rm exchange}\ A[j]\ {\rm with}\ A[j-1]$$
+> $$\small \!{\rm BUBBLESORT}(A)\\ 1\quad \boldsymbol{for}\ i=1\ \boldsymbol{to}\ A.length-1\\ 2\quad\qquad \boldsymbol{for}\ j=A.length\ \boldsymbol{downto}\ i+1\\ 3\quad\qquad\qquad \boldsymbol{if}\ A[j]\lt A[j-1]\\ 4\quad\qquad\qquad\qquad {\rm exchange}\ A[j]\ {\rm with}\ A[j-1]$$
 
 > **a.** 假设 $$A'$$ 表示 $$\small {\rm BUBBLESORT}(A)$$ 的输出。为了证明 $$\small {\rm BUBBLESORT}$$ 正确，我们必须证明它将终止并且有： $$A'[1]\leq A'[2]\leq\cdots\leq A'[n]\tag{2.3}$$ 其中 $$n=A.length$$ 。为了证明 $$\small {\rm BUBBLESORT}$$ 确实完成了排序，我们还需要证明什么？下面两部分将证明不等式 $$\small (2.3)$$ 。
 
@@ -168,7 +168,7 @@ $$\small {\rm TWO\verb|-|SUM}$$ 接收一个数组 $$S$$ 和整数 $$x$$ 作为�
 
 > _（霍纳（Horner）规则的正确性）_给定系数 $$a_0$$ ， $$a_1$$ ， $$\cdots$$ ， $$a_n$$ 和 $$x$$ 的值，代码片段 
 >
-> $$\small 1\quad y=0\\ 2\quad \boldsymbol{for}\ i=n\ \boldsymbol{downto}\ 0\\ 3\quad\qquad y=a_i+x\cdot y$$ 
+> $$\small \!\hspace{0.067em}1\quad y=0\\ 2\quad \boldsymbol{for}\ i=n\ \boldsymbol{downto}\ 0\\ 3\quad\qquad y=a_i+x\cdot y$$ 
 >
 > 实现了用于求值多项式
 >
@@ -178,7 +178,13 @@ $$\small {\rm TWO\verb|-|SUM}$$ 接收一个数组 $$S$$ 和整数 $$x$$ 作为�
 
 > **a.** 借助 $$\Theta$$ 记号，实现霍纳规则的以上代码片段的运行时间是多少？
 
+$$\Theta(n)$$ 。
+
 > **b.** 编写伪代码来实现朴素的多项式求值算法，该算法从头开始计算多项式的每个项。该算法的运行时间是多少？与霍纳规则相比，其性能如何？
+
+$$\small \!\hspace{0.067em} 1\quad \boldsymbol{for}\ i=n\ \boldsymbol{downto}\ 0\\ 2\quad \qquad m=1\\ 3\quad \qquad \boldsymbol{for}\ j=1\ \boldsymbol{to}\ i\\ 4\quad \qquad\qquad m=m\cdot x\\ 5\quad \qquad y=y+a_i\cdot m$$ 
+
+$$\Theta(n^2)$$ 。大概会慢一点吧。
 
 > **c.** 考虑以下循环不变式：在2~3行 $$\boldsymbol{for}$$ 循环每次迭代的开始有
 >
@@ -186,7 +192,26 @@ $$\small {\rm TWO\verb|-|SUM}$$ 接收一个数组 $$S$$ 和整数 $$x$$ 作为�
 >
 > 把没有项的和式解释为等于 $$0$$ 。遵照本章中给出的循环不变式证明的结构，使用该循环不变式来证明终止时有 $$\displaystyle y=\sum_{k=0}^{n}a_{k}x^k$$ 。
 
+**初始化：**第一次 $$\boldsymbol{for}$$ 循坏迭代开始前 $$i=n$$ ， $$\displaystyle y=\sum_{k=0}^{-1}a_{k+n+1}x^k=0$$ ，这意味着循环不变式在循环开始前成立。
+
+**保持：**进入循环后， $$y$$ 的值更新了，有
+
+$$
+\begin{aligned}
+y&=a_i+x\cdot \sum_{k=0}^{n-(i+1)}a_{k+i+1}x^k\\
+&=a_i+\sum_{k=0}^{n-(i+1)}a_{k+i+1}x^{k+1}\\
+&=a_ix^0+\sum_{k=1}^{n-i}a_{k+i}x^k\\
+&=\sum_{k=0}^{n-i}a_{k+i}x^k=\sum_{k=0}^{n-((i-1)+1)}a_{k+(i-1)+1}x^k
+\end{aligned}
+$$
+
+对 $$\boldsymbol{for}$$ 循环的下一次迭代， $$i$$ 变为 $$(i-1)$$ 将保持循环不变式。
+
+**终止：**循环终止时 $$i=-1$$ ，带入 $$i$$ 的值我们得到 $$\displaystyle y=\sum_{k=0}^{n}a_kx^k$$ 。
+
 > **d.** 最后证明上面给出的代码片段将正确地求由系数$$a_0$$ ， $$a_1$$ ， $$\cdots$$ ， $$a_n$$ 刻画的多项式的值。
+
+前人之述备矣。
 
 ### 2-4
 
