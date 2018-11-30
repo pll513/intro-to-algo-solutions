@@ -120,7 +120,7 @@ $$\small \!{\rm RECURSIVE\verb|-|BINARY\verb|-|SEARCH}(A,v,low,high)\\ 1\quad \b
 
 > 描述一个运行时间为 $$\Theta(n\lg n)$$ 的算法，给定 $$n$$ 个整数的集合 $$S$$ 和另一个整数 $$x$$ ，该算法能确定 $$S$$ 中是否存在两个其和刚好为 $$x$$ 的元素。
 
-$$\small \!{\rm TWO\verb|-|SUM}(S,x)\\ \ \ 1\quad n=S.length\\ \ \ 2\quad {\rm MERGE\verb|-|SORT}(S,1,n)\\ \ \ 3\quad low=1\\ \ \ 4\quad high=n\\ \ \ 5\quad \boldsymbol{while}\ low\lt high\\ \ \ 6\quad \qquad sum=S[low]+S[high]\\ \ \ 7\quad \qquad \boldsymbol{if}\ sum\lt x\\ \ \ 8\quad \qquad\qquad low=low+1\\ \ \ 9\quad \qquad \boldsymbol{elseif}\ sum\gt x\\ 10\quad \qquad\qquad high=high-1\\ 11\quad \qquad \boldsymbol{else}\ \boldsymbol{return}\ {\rm true}\\ 12\quad \boldsymbol{return}\ {\rm false}$$ 
+$$\small \!{\rm TWO\verb|-|SUM}(S,x)\\ \ \ 1\quad n=S.length\\ \ \ 2\quad {\rm MERGE\verb|-|SORT}(S,1,n)\\ \ \ 3\quad low=1\\ \ \ 4\quad high=n\\ \ \ 5\quad \boldsymbol{while}\ low\lt high\\ \ \ 6\quad \qquad sum=S[low]+S[high]\\ \ \ 7\quad \qquad \boldsymbol{if}\ sum\lt x\\ \ \ 8\quad \qquad\qquad low=low+1\\ \ \ 9\quad \qquad \boldsymbol{elseif}\ sum\gt x\\ 10\quad \qquad\qquad high=high-1\\ 11\quad \qquad \boldsymbol{else}\ \boldsymbol{return}\ {\rm TRUE}\\ 12\quad \boldsymbol{return}\ {\rm FALSE}$$ 
 
 $$\small {\rm TWO\verb|-|SUM}$$ 接收一个数组 $$S$$ 和整数 $$x$$ 作为输入参数，首先对 $$S$$ 进行升序排列，接着用 $$low$$ 和 $$high$$ 分别从头和尾寻找结果。$$\small {\rm MERGE\verb|-|SORT}$$ 需要 $$\Theta(n\lg n)$$ 的运行时间； $$\boldsymbol{while}$$ 循环需要 $$\Theta(n)$$ 的运行时间，故 $$\small {\rm TWO\verb|-|SUM}$$ 总共耗费 $$\Theta(n\lg n)$$ 的运行时间。
 
@@ -252,4 +252,37 @@ $$(1,5)$$ ， $$(2,5)$$ ， $$(3,4)$$ ， $$(3,5)$$ ， $$(4,5)$$ 。
 设输入数组 $$A[1..n]$$ 的逆序对数量为 $$n_r$$，那么插入排序的运行时间为 $$\Theta(n_r+n)$$ 。如果我们用 $$r_j$$表示由 $$A[j]$$ 和 $$A[1..j-1]$$ 中的元素组成的逆序对的总数，注意到 $$r_1=0$$ 。所以我们有 $$\small \displaystyle n_r=\sum_{j=1}^{n}r_j=\sum_{j=2}^{n}r_j$$。接着我们分析 $$\small \rm INSERTION\verb|-|SORT$$ 算法。为了简化问题，我们忽略 $$\boldsymbol{for}$$ 和 $$\boldsymbol{while}$$ 循环中的边界条件，设算法的第2~4行和第8行的每次运行时间恒定，为 $$c_1$$ ；第6~7行每次运行的时间恒定，为 $$c_2$$ （ $$c_1$$ 包含了对变量 $$j$$的修改和判断， $$c_2$$ 包含了对变量 $$i$$ 的修改和判断 ）。由插入排序保持的循环不变式我们知道在进入第5行 $$\boldsymbol{while}$$ 前， $$A[1..j-1]$$ 由原来 $$A[1..j-1]$$ 中的元素组成且已升序排列。而 $$\boldsymbol{while}$$循环的循环次数是 $$A[1..j-1]$$中所有比 $$A[j]$$ 大的元素，这恰好就是 $$r_j$$。所以插入排序的总运行时间 $$\small \displaystyle T=\sum_{j=2}^{n}(c_2r_j+c_1)=c_2n_r+c_1n-c_1=\Theta(n_r+n)$$ 。进一步我们可以得出结论：当输入数组升序排列时，插入排序的逆序对数为 $$0$$ ，运行时间为 $$\Theta(n)$$ ；当输入数组降序排列时，插入排序的逆序对数最大，运行时间为 $$\Theta(n^2)$$ 。
 
 > **d.** 给出一个确定在 $$n$$ 个元素的任何排列中逆序对数量的算法，最坏情况需要 $$\Theta(n\lg n)$$ 时间（_提示：_修改归并排序）。
+
+$$\small \!{\rm COUNT\verb|-|INVERSIONS}(A,p,r)\\ 1\quad inversions=0\\ 2\quad \boldsymbol{if}\ p \lt r\\ 3\quad \qquad q=\lfloor (p+r)/2 \rfloor\\ 4\quad \qquad inversions=inversions+{\rm COUNT\verb|-|INVERSIONS}(A,p,q)\\ 5\quad \qquad inversions=inversions+{\rm COUNT\verb|-|INVERSIONS}(A,q+1,r)\\ 6\quad \qquad inversions=inversions+{\rm MERGE\verb|-|INVERSIONS}(A,p,q,r)\\ 7\quad \boldsymbol{return}\ inversions$$
+
+$$\small \!{\rm MERGE\verb|-|INVERSIONS}(A,p,q,r)\\ \ \ 1\quad n_1 = q - p + 1\\ \ \ 2\quad n_2 = r - q\\ \ \ 3\quad {\rm let}\ L[1..n_1+1]\ {\rm and}\ R[1..n_2+1]\ {\rm be\ new\ arrays}\\ \ \ 4\quad \boldsymbol{for}\ i=1\ \boldsymbol{to}\ n_1\\  \ \ 5\quad \qquad L[i]=A[p+i-1]\\ \ \ 6\quad \boldsymbol{for}\ j=1\ \boldsymbol{to}\ n_2\\  \ \ 7\quad \qquad R[i]=A[q+j]\\  \ \ 8\quad L[n_1+1]=\infty\\ \ \ 9\quad R[n_2+1]=\infty\\ 10\quad i=1\\ 11\quad j=1\\ 12\quad inversions=0\\ 12\quad \boldsymbol{for}\ k=p\  \boldsymbol{to}\ r\\ 13\quad \qquad \boldsymbol{if}\ L[i]\leq R[j]\\ 14\quad \qquad\qquad A[k]=L[i]\\ 15\quad \qquad\qquad i=i+1\\ 16\quad \qquad \boldsymbol{else}\\ 17\quad \qquad\qquad A[k]=R[j]\\ 18\quad \qquad\qquad j=j+1\\ 19\quad \qquad\qquad inversions=inversions+n_1-i+1\\ 20\quad \boldsymbol{return}\ inversions$$ 
+
+首先 $$\small {\rm COUNT\verb|-|INVERSIONS}$$ 对数组进行分解，它把数组 $$A[p..r]$$ 分解为 $$A[p..q]$$ （记为 $$L$$ ）和 $$A[q+1,r]$$ （记为 $$R$$ ）。我们把从 $$L$$ 中取出两个元素组成的逆序对总数记为 $$i_L$$ ，把从 $$R$$ 中取出两个元素组成的逆序对总数记为 $$i_R$$ ，把分别从 $$L$$ 和 $$R$$ 各取一个元素组成的逆序对总数记为 $$i_{LR}$$ ，把 $$A[p..r]$$ 包含的逆序对总数记为 $$i_A$$ 。所以我们有：
+
+$$
+\begin{aligned}
+i_A&=\sum[p\leq i\lt j\leq r][A[i]\gt A[j]]\\
+i_L&=\sum[p\leq i\lt j\leq q][A[i]\gt A[j]]\\
+i_R&=\sum[q+1\leq i\lt j\leq r][A[i]\gt A[j]]\\
+i_{LR}&=\sum[p\leq i \leq q][q+1\leq j \leq r][A[i]\gt A[j]]
+\end{aligned}
+$$
+
+注意到：
+
+$$
+[p\leq i\lt j\leq r]=[p\leq i\lt j\leq q]+[q+1\leq i\lt j\leq r]+[p\leq i \leq q][q+1\leq j \leq r]
+$$
+
+所以我们得到：
+
+$$
+i_A=i_L+i_R+i_{LR}
+$$
+
+至此 $$\small {\rm COUNT\verb|-|INVERSIONS}$$ 对问题进行分解的正确性得到证明。
+
+接下来需要证明 $$\small {\rm MERGE\verb|-|INVERSIONS}$$ **没有遗漏**、**没有重复**地统计了 $$A$$ 中的逆序对数。首先套用上面的定义，因为进入 $$\small {\rm MERGE\verb|-|INVERSIONS}$$ 前， $$L$$ 和 $$R$$ 已经有序，我们有 $$i_L=i_R=0$$ ，所以 $$i_A=i_{LR}$$ 。因此我们只需要在 $$\small {\rm MERGE\verb|-|INVERSIONS}$$内统计 $$i_{LR}$$ 的数目就可以了。接着，自底向上看 $$\small {\rm COUNT\verb|-|INVERSIONS}$$ 的过程，它会把 $$A$$ 分解为最短长度为 $$1$$ 的子列表，然后再合并。如果存在 $$(i,j)$$ 这样一组逆序对，在合并过程中至少会出现一次 $$A[i]$$ 在 $$L$$ 中， $$A[j]$$ 在 $$R$$ 中的情况，这证明了**没有遗漏**。而一旦合并完成，原来属于 $$L$$和 $$R$$ 的两个元素就不会再出现在下一次的 $$L$$和 $$R$$ 两边，这证明了**没有重复**。
+
+综上，我们只需要在 $$\small {\rm MERGE\verb|-|INVERSIONS}$$ 内统计由左右子列表各出一个元素组成的逆序对总数就可以了。最后，看一下 $$\small {\rm MERGE\verb|-|INVERSIONS}$$ 的内部，一旦我们找到一组 $$(i,j)$$ 使得 $$L[i]\gt R[j]$$ ，我们可以进一步得到 $$L[i..p]$$ 中的 $$(n_1-i+1)$$ 个元素都大于 $$R[j]$$ ，这是第19行 $$n_1-i+1$$ 的由来。（我对原答案做了一点改动，实在是搞不明白答案上的 $$counted$$ 变量有什么意义，如果 $$L[i]\gt R[j]$$ ，下一个取出的元素是 $$R[j]$$ ，所以下一个和 $$L[i]$$ 比较的元素会是 $$R[j+1]$$ ，本身就不存在重复统计的可能性）
 
