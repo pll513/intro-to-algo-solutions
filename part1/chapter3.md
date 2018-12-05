@@ -167,7 +167,7 @@ $$
 
 > 证明： $$k\ln k=\Theta(n)$$ 蕴含着 $$k=\Theta(n/\ln n)$$ 。
 
-比较怂的做法：
+**比较怂的做法：**
 
 由渐进记号的对称性，我们有：
 
@@ -196,21 +196,80 @@ $$
 
 所以 $$\displaystyle \frac{n}{\ln n}=\Theta(k)$$ ，再次利用对称性我们有 $$k=\Theta(n/\ln n)$$ 。
 
+**比较扛的做法：**
+
+已知 $$k\ln k=\Theta(n)$$ ，所以存在 $$n_0\gt 0$$ ，对所有 $$n\geq n_0$$ ，有：
+
+$$
+c_1n\leq k\ln k\leq c_2n\tag{1}
+$$
+
+在 $$(1)$$ 的两边除以 $$\ln n$$ 我们得到：
+
+$$
+\frac{\ln k}{c_2\ln n}k\leq\frac{n}{\ln n}\leq \frac{\ln k}{c_1\ln n}k \tag{2}
+$$
+
+ 在 $$(1)$$ 两边取对数得到 $$\ln c_1+\ln n \leq \ln k+\ln\ln k\leq c_2+\ln n$$ ，所以对于 $$k\geq3$$ （根据题设，显然 $$k\neq\Theta(1)$$ ，所以存在 $$n_1\gt 0$$ ，对所有 $$n\geq n_1$$ ，有 $$k\geq 3$$ ），我们有：
+
+$$
+\ln c_1+\ln n \leq 2\ln k\\
+\ln k\leq \ln c_2+\ln n\tag{3}
+$$
+
+整理 $$(3)$$ ，对于 $$n\geq 3$$ ，我们有：
+
+$$
+\frac{1}{2}+\frac{\ln c_1}{2\ln n}\leq\frac{\ln k}{\ln n}\leq 1+\frac{\ln c_2}{\ln n}\tag{4}
+$$
+
+在 $$(4)$$ 中我们取 $$c_1\gt 1$$ ， $$c_2\gt 1$$ ， $$n\geq c_2$$ ，就可以得到：
+
+$$
+\frac{1}{2}\leq\frac{\ln k}{\ln n}\leq 2\tag{5}
+$$
+
+最后把 $$(5)$$ 代入 $$(2)$$ ，我们有：
+
+$$
+2c_1\frac{n}{\ln n}\leq k\leq\frac{c_2}{2}\frac{n}{\ln n}
+$$
+
+所以 $$k=\Theta(n/\ln n)$$ 。
+
 ## 思考题
 
 ### 3-1
 
 > _（多项式的渐进行为）_假设 $$\displaystyle p(n)=\sum^d_{i=0}a_in^i$$ 是一个关于 $$n$$ 的 $$d$$ 次多项式，其中 $$a_d\gt 0$$ ， $$k$$ 是一个常量。使用渐进记号的定义来证明下面的性质。
 
-> **a.** $$k\geq d$$ 若，则 $$p(n)=O(n^k)$$ 。
+> **a.** 若 $$k\geq d$$ ，则 $$p(n)=O(n^k)$$ 。
 
-> **b.** $$k\leq d$$ 若，则 $$p(n)=\Omega(n^k)$$ 。
+$$\displaystyle p(n)=\sum^d_{i=0}a_in^i\leq\sum^d_{i=0}a_in^d=(\sum^d_{i=0}a_i)n^d\leq(\sum^d_{i=0}a_i)n^k$$ 
 
-> **c.** $$k=d$$ 若，则 $$p(n)=\Theta(n^k)$$ 。
+所以存在 $$\displaystyle c=\sum^d_{i=0}a_i\gt 0$$ ，使得对所有 $$n\geq 0$$ ，有 $$p(n)\leq cn^k$$ ，所以 $$p(n)=O(n^k)$$ 。
 
-> **d.** $$k\gt d$$ 若，则 $$p(n)=o(n^k)$$ 。
+> **b.** 若 $$k\leq d$$ ，则 $$p(n)=\Omega(n^k)$$ 。
 
-> **e.** $$k\lt d$$ 若，则 $$p(n)=\omega(n^k)$$ 。
+$$\displaystyle p(n)=\sum^d_{i=0}a_in^i\geq a_dn^d\geq a_dn^k$$ 
+
+所以存在 $$\displaystyle c=a_d\gt 0$$ ，使得对所有 $$n\geq 0$$ ，有 $$p(n)\geq cn^k$$ ，所以 $$p(n)=\Omega(n^k)$$ 。
+
+> **c.** 若 $$k=d$$ ，则 $$p(n)=\Theta(n^k)$$ 。
+
+\(a\)和\(b\)告诉我们 $$\displaystyle a_dn^k\leq p(n)\leq(\sum^d_{i=0}a_i)n^k$$ ，所以存在 $$\displaystyle c_1=a_d\gt 0$$ ， $$\displaystyle c_2=\sum^d_{i=0}a_i\gt 0$$ ，对所有 $$n\geq 0$$ ，有 $$c_1n^k\leq p(n)\leq c_2n^k$$ ，所以 $$p(n)=\Theta(n^k)$$ 。
+
+> **d.** 若 $$k\gt d$$ ，则 $$p(n)=o(n^k)$$ 。
+
+$$\displaystyle p(n)=\sum^d_{i=0}a_in^i\leq\sum^d_{i=0}a_in^d=(\sum^d_{i=0}a_i)n^d$$ 
+
+对于任意的 $$c\gt 0$$ ，只要有 $$\displaystyle n\gt \sqrt[k-d]{\sum^d_{i=0}a_i/c}$$ ，就有 $$p(n)\lt cn^k$$ 。所以对于任意的 $$c\gt 0$$ ，存在 $$\displaystyle n_0=\left\lceil(\sum^d_{i=0}a_i/c)^{1/(k-d)}\right\rceil+1$$ ，使得对所有的 $$n\geq n_0$$ ，有 $$p(n)\lt cn^k$$ ，所以 $$p(n)=o(n^k)$$ 。
+
+> **e.** 若 $$k\lt d$$ ，则 $$p(n)=\omega(n^k)$$ 。
+
+$$\displaystyle p(n)=\sum^d_{i=0}a_in^i\geq a_dn^d$$ 
+
+对于任意的 $$c\gt 0$$ ，只要有 $$\displaystyle n\gt \sqrt[d-k]{c/a_d}$$ ，就有 $$p(n)\lt cn^k$$ 。所以对于任意的 $$c\gt 0$$ ，存在 $$\displaystyle n_0=\left\lceil(c/a_d)^{1/(d-k)}\right\rceil+1$$ ，使得对所有的 $$n\geq n_0$$ ，有 $$p(n)\gt cn^k$$ ，所以 $$p(n)=\omega(n^k)$$ 。
 
 ### 3-2
 
@@ -225,5 +284,11 @@ $$
 | $$n^{\lg c}\qquad c^{\lg n}$$  | 是 | 否 | 是 | 否· | 是 |
 | $$\lg{(n!)}\qquad\lg{(n^n)}$$  | 是 | 否 | 是 | 否 | 是 |
 
+### 3-3
 
+> _（根据渐进增长率排序）_
+
+> **a.** 根据增长的阶来排序下面的函数，即却出满足 $$g_1=\Omega(g_2)$$ ， $$g_2=\Omega(g_3)$$ ， $$\cdots$$ ， $$g_{29}=\Omega(g_{30})$$的函数的一种排列 $$g_1$$ ， $$g_2$$ ， $$\cdots$$ ， $$g_{30}$$ 。把你的表划分成等价类，使得函数 $$f(n)$$ 和 $$g(n)$$ 在想同类中当且仅当 $$f(n)=\Theta(g(n))$$ 。
+
+> **b.** 给出非负函数 $$f(n)$$ 的一个例子，使得对所有在\(a\)部分中的函数 $$g_i(n)$$ ， $$f(n)$$ 既不是 $$O(g_i(n))$$也不是 $$\Omega(g_i(n))$$ 。
 
