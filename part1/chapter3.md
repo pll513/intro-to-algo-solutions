@@ -247,29 +247,29 @@ $$
 
 $$\displaystyle p(n)=\sum^d_{i=0}a_in^i\leq\sum^d_{i=0}a_in^d=(\sum^d_{i=0}a_i)n^d\leq(\sum^d_{i=0}a_i)n^k$$ 
 
-所以存在 $$\displaystyle c=\sum^d_{i=0}a_i\gt 0$$ ，使得对所有 $$n\geq 0$$ ，有 $$p(n)\leq cn^k$$ ，所以 $$p(n)=O(n^k)$$ 。
+所以存在 $$\displaystyle c=\sum^d_{i=0}a_i\gt 0$$ ，使得对所有 $$n\geq 0$$ ，有 $$0\leq p(n)\leq cn^k$$ ，所以 $$p(n)=O(n^k)$$ 。
 
 > **b.** 若 $$k\leq d$$ ，则 $$p(n)=\Omega(n^k)$$ 。
 
 $$\displaystyle p(n)=\sum^d_{i=0}a_in^i\geq a_dn^d\geq a_dn^k$$ 
 
-所以存在 $$\displaystyle c=a_d\gt 0$$ ，使得对所有 $$n\geq 0$$ ，有 $$p(n)\geq cn^k$$ ，所以 $$p(n)=\Omega(n^k)$$ 。
+所以存在 $$\displaystyle c=a_d\gt 0$$ ，使得对所有 $$n\geq 0$$ ，有 $$0\leq cn^k\leq p(n)$$ ，所以 $$p(n)=\Omega(n^k)$$ 。
 
 > **c.** 若 $$k=d$$ ，则 $$p(n)=\Theta(n^k)$$ 。
 
-\(a\)和\(b\)告诉我们 $$\displaystyle a_dn^k\leq p(n)\leq(\sum^d_{i=0}a_i)n^k$$ ，所以存在 $$\displaystyle c_1=a_d\gt 0$$ ， $$\displaystyle c_2=\sum^d_{i=0}a_i\gt 0$$ ，对所有 $$n\geq 0$$ ，有 $$c_1n^k\leq p(n)\leq c_2n^k$$ ，所以 $$p(n)=\Theta(n^k)$$ 。
+\(a\)和\(b\)告诉我们 $$\displaystyle a_dn^k\leq p(n)\leq(\sum^d_{i=0}a_i)n^k$$ ，所以存在 $$\displaystyle c_1=a_d\gt 0$$ ， $$\displaystyle c_2=\sum^d_{i=0}a_i\gt 0$$ ，对所有 $$n\geq 0$$ ，有 $$0\leq c_1n^k\leq p(n)\leq c_2n^k$$ ，所以 $$p(n)=\Theta(n^k)$$ 。
 
 > **d.** 若 $$k\gt d$$ ，则 $$p(n)=o(n^k)$$ 。
 
 $$\displaystyle p(n)=\sum^d_{i=0}a_in^i\leq\sum^d_{i=0}a_in^d=(\sum^d_{i=0}a_i)n^d$$ 
 
-对于任意的 $$c\gt 0$$ ，只要有 $$\displaystyle n\gt \sqrt[k-d]{\sum^d_{i=0}a_i/c}$$ ，就有 $$p(n)\lt cn^k$$ 。所以对于任意的 $$c\gt 0$$ ，存在 $$\displaystyle n_0=\left\lceil(\sum^d_{i=0}a_i/c)^{1/(k-d)}\right\rceil+1$$ ，使得对所有的 $$n\geq n_0$$ ，有 $$p(n)\lt cn^k$$ ，所以 $$p(n)=o(n^k)$$ 。
+对于任意的 $$c\gt 0$$ ，只要有 $$\displaystyle n\gt \sqrt[k-d]{\sum^d_{i=0}a_i/c}$$ ，就有 $$p(n)\lt cn^k$$ 。所以对于任意的 $$c\gt 0$$ ，存在 $$\displaystyle n_0=\left\lceil(\sum^d_{i=0}a_i/c)^{1/(k-d)}\right\rceil+1$$ ，使得对所有的 $$n\geq n_0$$ ，有 $$0 \leq p(n)\lt cn^k$$ ，所以 $$p(n)=o(n^k)$$ 。
 
 > **e.** 若 $$k\lt d$$ ，则 $$p(n)=\omega(n^k)$$ 。
 
 $$\displaystyle p(n)=\sum^d_{i=0}a_in^i\geq a_dn^d$$ 
 
-对于任意的 $$c\gt 0$$ ，只要有 $$\displaystyle n\gt \sqrt[d-k]{c/a_d}$$ ，就有 $$p(n)\lt cn^k$$ 。所以对于任意的 $$c\gt 0$$ ，存在 $$\displaystyle n_0=\left\lceil(c/a_d)^{1/(d-k)}\right\rceil+1$$ ，使得对所有的 $$n\geq n_0$$ ，有 $$p(n)\gt cn^k$$ ，所以 $$p(n)=\omega(n^k)$$ 。
+对于任意的 $$c\gt 0$$ ，只要有 $$\displaystyle n\gt \sqrt[d-k]{c/a_d}$$ ，就有 $$p(n)\gt cn^k$$ 。所以对于任意的 $$c\gt 0$$ ，存在 $$\displaystyle n_0=\left\lceil(c/a_d)^{1/(d-k)}\right\rceil+1$$ ，使得对所有的 $$n\geq n_0$$ ，有 $$0\leq cn^k \lt p(n)$$ ，所以 $$p(n)=\omega(n^k)$$ 。
 
 ### 3-2
 
@@ -290,5 +290,79 @@ $$\displaystyle p(n)=\sum^d_{i=0}a_in^i\geq a_dn^d$$
 
 > **a.** 根据增长的阶来排序下面的函数，即却出满足 $$g_1=\Omega(g_2)$$ ， $$g_2=\Omega(g_3)$$ ， $$\cdots$$ ， $$g_{29}=\Omega(g_{30})$$的函数的一种排列 $$g_1$$ ， $$g_2$$ ， $$\cdots$$ ， $$g_{30}$$ 。把你的表划分成等价类，使得函数 $$f(n)$$ 和 $$g(n)$$ 在想同类中当且仅当 $$f(n)=\Theta(g(n))$$ 。
 
+| 1 | 2 | 3 | 4 | 5 | 6 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| $$2^{2^{n+1}}$$  | $$2^{2^n}$$  | $$(n+1)!$$  | $$n!$$  | $$\mathrm{e}^n$$  | $$n\cdot 2^n$$  |
+
+| 7 | 8 | 9 | 10 | 11 | 12 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| $$2^n$$  | $$\displaystyle (\frac{3}{2})^n$$  | $$n^{\lg \lg n}$$ $$(\lg n)^{\lg n}$$  | $$(\lg n)!$$  | $$n^3$$ | $$n^2$$ $$4^{\lg n}$$ |
+
+| 13 | 14 | 15 | 16 | 17 | 18 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| $$n\lg n$$ $$\lg(n!)$$ | $$n$$ $$2^{\lg n}$$  | $$(\sqrt{2})^{\lg n}$$  | $$2^{\sqrt{2\lg n}}$$  | $$\lg^2 n$$  | $$\ln n$$  |
+
+| 19 | 20 | 21 | 22 | 23 | 24 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| $$\sqrt{\lg n}$$  | $$\ln\ln n$$  | $$2^{\lg^* n}$$  | $$\lg^*(\lg n)$$ $$\lg^* n$$  | $$\lg{(\lg^* n)}$$  | $$1$$ $$n^{1/\lg n}$$  |
+
 > **b.** 给出非负函数 $$f(n)$$ 的一个例子，使得对所有在\(a\)部分中的函数 $$g_i(n)$$ ， $$f(n)$$ 既不是 $$O(g_i(n))$$也不是 $$\Omega(g_i(n))$$ 。
+
+### 3-4
+
+> _（渐进记号的性质）_假设 $$f(n)$$ 和 $$g(n)$$ 为渐进正函数。证明或反驳下面的每个猜测。
+
+> **a.** $$f(n)=O(g(n))$$ 蕴含 $$g(n)=O(f(n))$$ 。
+
+不成立。
+
+取 $$f(n)=n$$ ， $$g(n)=n^2$$ ，则有 $$f(n)=O(g(n))$$ ，但 $$g(n)=\omega(f(n))\neq O(f(n))$$ 。
+
+> **b.** $$f(n)+g(n)=\Theta(min(f(n),g(n)))$$ 。
+
+不成立。
+
+取 $$f(n)=n$$ ， $$g(n)=n^2$$ ，则有 $$min(f(n),g(n))=n$$ ，所以 $$f(n)+g(n)=n^2+n=\Theta(n^2)\neq\Theta(n)$$ 。 
+
+> **c.** $$f(n)=O(g(n))$$ 蕴含 $$\lg(f(n))=O(\lg(g(n)))$$ ，其中对所有足够大的 $$n$$ ，有 $$\lg(g(n))\geq 1$$ 且 $$f(n)\geq 1$$ 。
+
+成立。
+
+由已知存在 $$c\gt 0$$ ， $$n_0\gt 0$$ ，对所有 $$n\geq n_0$$ ，有 $$0\leq f(n)\leq cg(n)$$ ；存在 $$n_1\gt 0$$ ，对所有 $$n\geq n_1$$ ，有 $$\lg(g(n))\geq 1$$ 且 $$f(n)\geq 1$$。取 $$n_2=max(n_0,n1)$$ ，则对所有 $$n\geq n_2$$ ，有：
+
+$$
+0\leq \lg(f(n))\leq\lg c+\lg(g(n))=(\frac{\lg c}{\lg(g(n))}+1)\lg(g(n))\leq (\lg c+1)\lg(g(n))
+$$
+
+所以 $$\lg(f(n))=O(\lg(g(n)))$$ 。
+
+> **d.** $$f(n)=O(g(n))$$ 蕴含 $$2^{f(n)}=O(2^{g(n)})$$ 。
+
+不成立。
+
+取 $$f(n)=2n$$ ， $$g(n)=n$$ ，则有 $$f(n)=O(g(n))$$ ，但 $$2^{f(n)}=2^{2n}=\omega(2^n)\neq O(2^{g(n)})$$ 。
+
+> **e.** $$f(n)=O((f(n))^2)$$ 。
+
+不成立。
+
+取 $$f(n)=1/n$$ ， $$(f(n))^2=1/n^2$$ ，则有 $$f(n)=\omega((f(n))^2)\neq O((f(n))^2)$$ 。
+
+> **f.** $$f(n)=O(g(n))$$ 蕴含 $$g(n)=\Omega(f(n))$$ 。
+
+成立。
+
+因为 $$f(n)=O(g(n))$$ ，所以存在 $$c\gt 0$$ ， $$n_0\gt 0$$ ，对所有 $$n\geq n_0$$ ，有 $$0\leq f(n)\leq cg(n)$$ ，所以 $$0\leq 1/cf(n)\leq g(n)$$ ，所以 $$g(n)=\Omega(f(n))$$ 。
+
+> **g.** $$f(n)=\Theta(f(n/2))$$
+
+不成立。
+
+取 $$f(n)=2^{2n}$$ ，则 $$f(n/2)=2^n=o(f(n))\neq \Theta(f(n))$$ 。
+
+> **h.** $$f(n)+o(f(n))=\Theta(f(n))$$ 。
+
+成立。
+
+由已知存在 $$c_1\gt 0$$ ， $$c_2\gt 0$$ ， $$n_0\gt 0$$ ，对所有 $$n\geq n_0$$ ，有 $$c_1f(n)\leq o(f(n))\leq c_2f(n)$$ ，所以 $$(1+c_1)f(n)\leq f(n)+o(f(n))\leq (1+c_2)f(n)$$ ，所以 $$f(n)+o(f(n))=\Theta(f(n))$$ 。
 
